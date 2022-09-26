@@ -2,9 +2,10 @@
 
 猫之城自动钓鱼
 
-## 下载python
+## 下载
 
 [python.org](https://python.org)
+[雷电模拟器9 64位](https://www.ldmnq.com/)
 
 ### 下载jupyter notebook
 
@@ -31,3 +32,7 @@ pip install ddddocr
 ```shell
 jupyter notebook
 ```
+
+### 调整模拟器分辨率
+
+1280x720
