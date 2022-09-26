@@ -5,6 +5,7 @@
 ## 下载
 
 [python.org](https://python.org)
+
 [雷电模拟器9 64位](https://www.ldmnq.com/)
 
 ### 下载jupyter notebook
@@ -16,15 +17,7 @@ pip install jupyter
 ### 下载模块
 
 ```shell
-pip install opencv-python
-
-pip install pillow
-
-pip install pywin32
-
-pip install numpy
-
-pip install ddddocr
+pip install opencv-python pillow pywin32 numpy ddddocr
 ```
 
 ### 启动Jupyter Notebook
@@ -37,4 +30,6 @@ jupyter notebook
 
 分辨率：1280x720
 
-按键设置：修改按键设置，向下滑动为space键
+按键设置：桌面分辨率：1920x1080
+
+修改按键设置，向下滑动为space键
