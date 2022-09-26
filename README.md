@@ -33,6 +33,7 @@ pip install ddddocr
 jupyter notebook
 ```
 
-### 调整模拟器分辨率
+### 调整模拟器
 
-1280x720
+分辨率：1280x720
+按键设置：修改按键设置，向下滑动为ctrl键
