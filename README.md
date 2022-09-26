@@ -26,10 +26,10 @@ pip install opencv-python pillow pywin32 numpy ddddocr
 jupyter notebook
 ```
 
-### 调整模拟器
+### 调整分辨率
 
-分辨率：1280x720
+模拟器分辨率：1280x720
 
-按键设置：桌面分辨率：1920x1080
+桌面分辨率：1920x1080
 
 修改按键设置，向下滑动为space键
