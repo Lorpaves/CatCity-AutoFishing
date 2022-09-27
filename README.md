@@ -10,9 +10,6 @@
 
 [CatBot](https://github.com/Lorpaves/CatCity-AutoFishing/releases/tag/python)
 
-=======
-`
-
 ### 调整分辨率
 
 模拟器名称改为“ld”
