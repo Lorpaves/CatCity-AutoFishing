@@ -8,25 +8,15 @@
 
 [雷电模拟器9 64位](https://www.ldmnq.com/)
 
-### 下载jupyter notebook
+[CatBot](https://github.com/Lorpaves/CatCity-AutoFishing/releases/tag/python)
 
-```shell
-pip install jupyter
-```
-
-### 下载模块
-
-```shell
-pip install opencv-python pillow pywin32 numpy ddddocr
-```
-
-### 启动Jupyter Notebook
-
-```shell
-jupyter notebook
-```
+=======
+`
 
 ### 调整分辨率
+
+>>>>>>> ba4002d21aa37eff22557f584990d8b02a3904f7
+模拟器名称改为“ld”
 
 模拟器分辨率：1280x720
 
