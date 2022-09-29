@@ -140,7 +140,8 @@ class util:
 
     def toHome(self):
         while 1:
-            if self.OCR(17,244,63,268) != '调查':
+            text = self.OCR(539,683,587,709) 
+            if text != '其它':
                 self.doubleClick(54,35)
                 time.sleep(2)
             else: 

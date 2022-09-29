@@ -73,7 +73,7 @@ class fishing:
                 time.sleep(3)
                 util.doubleClick(639,651)
                 time.sleep(3)
-                util.doubleClick(948,605)  
+                util.doubleClick(796,650)  
                 if util.OCR(543,127,602,161) == '来自':
                     time.sleep(2)
                     util.doubleClick(663,348)
