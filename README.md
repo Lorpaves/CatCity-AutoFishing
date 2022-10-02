@@ -6,7 +6,7 @@
 
 [雷电模拟器9 64位](https://www.ldmnq.com/)
 
-[CatBot](https://github.com/Lorpaves/CatCity-AutoFishing/releases/tag/python)
+[CatBot](https://github.com/Lorpaves/CatCity-AutoFishing/releases)
 
 [使用教程视频](https://www.bilibili.com/video/BV1EV4y1T7iq/?spm_id_from=333.999.0.0&vd_source=823ee27acf1c9478547aa057f9d54e6c)
 
