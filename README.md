@@ -4,7 +4,7 @@
 
 ## 下载
 
-[雷电模拟器9 64位](https://www.ldmnq.com/)
+[雷电模拟器9 64位-9.0.23版本](https://www.ldmnq.com/other/version-history-and-release-notes.html)
 
 [CatBot](https://github.com/Lorpaves/CatCity-AutoFishing/releases)
 
