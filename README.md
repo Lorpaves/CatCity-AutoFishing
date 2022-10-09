@@ -62,13 +62,13 @@
 
 - 3. 下载[requirements.txt](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/requirements.txt)
 
-- 2. 下载环境所需要的模块
+- 4. 下载环境所需要的模块
 
 ```shell
 pip install -r requirements.txt
 ```
 
-- 4. 在gpu_version文件所在的文件夹下
+- 5. 在gpu_version文件所在的文件夹下
 
 ```shell
 python gui_version.py
