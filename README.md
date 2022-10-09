@@ -8,6 +8,8 @@
 
 [CatBot](https://github.com/Lorpaves/CatCity-AutoFishing/releases)
 
+### 使用教程
+
 [使用教程视频](https://www.bilibili.com/video/BV1EV4y1T7iq/?spm_id_from=333.999.0.0&vd_source=823ee27acf1c9478547aa057f9d54e6c)
 
 ### 版本更新说明
@@ -28,7 +30,7 @@
 
 - 模拟器分辨率：1280x720
 
-- 桌面分辨率：1920x1080 / 2560x1440 
+- 桌面分辨率：1920x1080 / 2560x1440
 
 - 桌面文本缩放：100%
 
@@ -45,3 +47,23 @@
 - 如果以上解决方法仍无效，B站私信我，最好能发图片给我看
 
 - 测试过2560x1440分辨率，27寸的显示器，也可以用
+
+### 关于使用GPU版本
+
+- 1. 环境要求：
+  - python3.x
+  - opencv gpu版本
+
+- 2. 下载环境所需要的模块
+
+```shell
+pip install -r requirements.txt
+```
+
+- 3. 下载[gpu_version](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/gpu_version.py)
+
+- 4. 在gpu_version文件所在的文件夹下
+
+```shell
+python gui_version.py
+```
