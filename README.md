@@ -54,21 +54,23 @@
 
 **这只是一个测试。如果运行失败建议使用原版本，因为需要自己编译Opencv CUDA版本，比较折腾。**
 
-- 1. 环境要求：
-  - python3.x
-  - opencv gpu版本
+1. 环境要求：
 
-- 2. 下载[gpu_version](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/gpu_version.py)
+   - python3.x
 
-- 3. 下载[requirements.txt](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/requirements.txt)
+   - opencv gpu版本
 
-- 4. 下载环境所需要的模块
+2. 下载[gpu_version](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/gpu_version.py)
 
-```shell
-pip install -r requirements.txt
-```
+3. 下载[requirements.txt](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/requirements.txt)
 
-- 5. 在gpu_version文件所在的文件夹下
+4. 下载环境所需要的模块
+
+    ```shell
+    pip install -r requirements.txt
+    ```
+
+5. 在gpu_version文件所在的文件夹下
 
 ```shell
 python gui_version.py
