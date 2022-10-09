@@ -58,13 +58,15 @@
   - python3.x
   - opencv gpu版本
 
+- 2. 下载[gpu_version](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/gpu_version.py)
+
+- 3. 下载[requirements.txt](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/requirements.txt)
+
 - 2. 下载环境所需要的模块
 
 ```shell
 pip install -r requirements.txt
 ```
-
-- 3. 下载[gpu_version](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/gpu_version.py)
 
 - 4. 在gpu_version文件所在的文件夹下
 
