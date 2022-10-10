@@ -61,6 +61,7 @@
    - opencv gpu版本
 
 2. 下载[gpu_version](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/gpu_version.py)
+   - 以及存放图片的钓鱼和涂鸦文件夹
 
 3. 下载[requirements.txt](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/requirements.txt)
 
