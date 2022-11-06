@@ -5,7 +5,10 @@ from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
 from PyQt6.QtGui import * 
 import sys
+<<<<<<< HEAD
+=======
 import json
+>>>>>>> 6a3869e (fix bugs)
 class WindowGui(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(WindowGui,self).__init__()
@@ -22,8 +25,11 @@ class WindowGui(QMainWindow,Ui_MainWindow):
         self.fishing_point.setCurrentIndex(self.qsettings.value('fishingPoint',type=int))
         self.fishing_times.setText(self.qsettings.value('fishingTimes'))
 
+<<<<<<< HEAD
+=======
         self.data = None
         self.load_data.clicked.connect(self.loadData)
+>>>>>>> 6a3869e (fix bugs)
         self.save.clicked.connect(self.saveSettings)
         self.confirm.clicked.connect(self.taskConfirm)
     def saveSettings(self):
@@ -39,6 +45,14 @@ class WindowGui(QMainWindow,Ui_MainWindow):
 
     def taskConfirm(self):
         if self.tuya_check.isChecked():
+<<<<<<< HEAD
+            tya = tuya(self.tuya_choice.currentIndex(),self.tuya_dif.currentIndex(),int(self.tuya_times.text()))
+            tya.stuya()
+        if self.fishing_check.isChecked():
+            diaoyu = fishing(int(self.fishing_times.text()),self.fishing_point.currentIndex())
+            diaoyu.fishing()
+
+=======
             tya = tuya(self.tuya_choice.currentIndex(),self.tuya_dif.currentIndex(),int(self.tuya_times.text()),self.data)
             tya.stuya()
         if self.fishing_check.isChecked():
@@ -51,6 +65,7 @@ class WindowGui(QMainWindow,Ui_MainWindow):
                 self.data = json.load(f)
         except:
             raise FileExistsError('配置文件不存在')
+>>>>>>> 6a3869e (fix bugs)
 if __name__ == '__main__':
     app = QApplication(sys.argv) 
     window = WindowGui()
