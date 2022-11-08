@@ -7,9 +7,7 @@ import cv2 as cv
 import numpy as np
 
 class util:
-    def __init__(self):
-        self.ocr = ddddocr.DdddOcr()
-        hwnd = win32gui.FindWindow(None,"ld")
+
     def __init__(self, data):
         self.data = data
         name = data['DEFAULT']['模拟器名称']
