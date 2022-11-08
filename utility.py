@@ -7,17 +7,14 @@ import cv2 as cv
 import numpy as np
 
 class util:
-<<<<<<< HEAD
     def __init__(self):
         self.ocr = ddddocr.DdddOcr()
         hwnd = win32gui.FindWindow(None,"ld")
-=======
     def __init__(self, data):
         self.data = data
         name = data['DEFAULT']['模拟器名称']
         self.ocr = ddddocr.DdddOcr()
         hwnd = win32gui.FindWindow(None,name)
->>>>>>> 6a3869e (fix bugs)
         self.hwnd = win32gui.FindWindowEx(hwnd,None,None,None)
         x_1, y_1, x_2, y_2 = win32gui.GetWindowRect(hwnd)
         self.width = x_2 - x_1
@@ -129,10 +126,6 @@ class util:
         if max_val < threshold:
             print(tmp, max_val, max_loc)
             return False
-<<<<<<< HEAD
-        #print(tmp, max_val, max_loc)
-=======
->>>>>>> 6a3869e (fix bugs)
         self.mouseDown(int(max_loc[0]) + int(tp.shape[1]/2), int(max_loc[1]) + int(tp.shape[0]/2))
         time.sleep(0.5)
         self.mouseUp(int(max_loc[0]) + int(tp.shape[1]/2), int(max_loc[1]) + int(tp.shape[0]/2))
@@ -148,17 +141,4 @@ class util:
             return False
         print(tmp, max_val, max_loc)
         return True
-
-<<<<<<< HEAD
-    def toHome(self):
-        while 1:
-            text = self.OCR(539,683,587,709) 
-            if text != '其它':
-                self.doubleClick(54,35)
-                time.sleep(2)
-            else: 
-                time.sleep(1)
-                break
-=======
->>>>>>> 6a3869e (fix bugs)
 

@@ -3,3 +3,4 @@ test.ipynb
 main.ui
 cat.ico
 output/
+gpu_version.py
