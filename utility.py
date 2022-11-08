@@ -45,11 +45,6 @@ class util:
         time.sleep(1.2)
         win32gui.SendMessage(self.hwnd, win32con.WM_KEYUP,win32con.VK_SPACE,0)
 
-    def swipeLeft(self):
-        win32gui.SendMessage(self.hwnd, win32con.WM_KEYDOWN,win32con.VK_CONTROL,0)
-        time.sleep(1.1)
-        win32gui.SendMessage(self.hwnd, win32con.WM_KEYUP,win32con.VK_CONTROL,0)
-
     def capWindow(self):
         wDC = win32gui.GetWindowDC(self.hwnd)
         dcObj = win32ui.CreateDCFromHandle(wDC)
