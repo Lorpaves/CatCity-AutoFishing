@@ -9,7 +9,7 @@ class WindowGui(QMainWindow,Ui_MainWindow):
     
     def __init__(self):
         super(WindowGui,self).__init__()
-
+        self.setWindowIcon(QIcon('logo.ico'))
         self.setupUi(self)
         self.qsettings = QSettings("config.ini")
         #涂鸦
