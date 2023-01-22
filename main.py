@@ -6,18 +6,21 @@ from PyQt6.QtGui import *
 import sys
 import json
 class WindowGui(QMainWindow,Ui_MainWindow):
+    
     def __init__(self):
         super(WindowGui,self).__init__()
 
         self.setupUi(self)
         self.qsettings = QSettings("config.ini")
         #涂鸦
-        self.tuya_check.setChecked(self.qsettings.value('tuyaCheckState',type=bool))
+        
+        self.tuya_check.setChecked(self.str2bool(self.qsettings.value('tuyaCheckState')))
         self.tuya_choice.setCurrentIndex(self.qsettings.value('tuyaChoice',type=int))
         self.tuya_dif.setCurrentIndex(self.qsettings.value('tuyaDif',type=int))
         self.tuya_times.setText(self.qsettings.value('tuyaTimes'))
         #钓鱼
-        self.fishing_check.setChecked(self.qsettings.value('fishingCheckState',type=bool))
+        # print((self.qsettings.value('fishingCheckState')))
+        self.fishing_check.setChecked(self.str2bool(self.qsettings.value('fishingCheckState')))
         self.fishing_point.setCurrentIndex(self.qsettings.value('fishingPoint',type=int))
         self.fishing_times.setText(self.qsettings.value('fishingTimes'))
 
@@ -25,6 +28,11 @@ class WindowGui(QMainWindow,Ui_MainWindow):
         self.load_data.clicked.connect(self.loadData)
         self.save.clicked.connect(self.saveSettings)
         self.confirm.clicked.connect(self.taskConfirm)
+    def str2bool(self, str):
+        if str == 'true':
+            return True
+        else:
+            return False
     def saveSettings(self):
         self.qsettings.setValue('tuyaCheckState', self.tuya_check.isChecked())
         self.qsettings.setValue('fishingCheckState', self.tuya_check.isChecked())
@@ -37,18 +45,14 @@ class WindowGui(QMainWindow,Ui_MainWindow):
         self.qsettings.setValue("fishingTimes",self.fishing_times.text())
 
     def taskConfirm(self):
-        if self.tuya_check.isChecked():
-            tya = tuya(self.tuya_choice.currentIndex(),self.tuya_dif.currentIndex(),int(self.tuya_times.text()))
-            tya.stuya()
+     
         if self.fishing_check.isChecked():
-            diaoyu = fishing(int(self.fishing_times.text()),self.fishing_point.currentIndex())
+            diaoyu = Fishing(int(self.fishing_times.text()),self.fishing_point.currentIndex(), self.data)
             diaoyu.fishing()
 
-            tya = tuya(self.tuya_choice.currentIndex(),self.tuya_dif.currentIndex(),int(self.tuya_times.text()),self.data)
-            tya.stuya()
-        if self.fishing_check.isChecked():
-            diaoyu = fishing(int(self.fishing_times.text()),self.fishing_point.currentIndex(),self.data)
-            diaoyu.fishing()
+        if self.tuya_check.isChecked():
+            tuya = Tuya(self.tuya_choice.currentIndex(), self.tuya_dif.currentIndex(), int(self.tuya_times.text()), self.data)
+            tuya.stuya()
 
     def loadData(self):
         try:

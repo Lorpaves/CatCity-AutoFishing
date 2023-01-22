@@ -1,12 +1,13 @@
 import time
 from utility import util
 
-class fishing:
+class Fishing:
     def __init__(self,ftimes,fpoint,data):
         self.data = data
         self.times = ftimes
         self.point = fpoint
         self.util = util(self.data)
+        # print(self.data)
         self.fingshing_point_x,self.fingshing_point_y = self.data['DEFAULT']['钓鱼场']
         self.back_x,self.back_y = self.data['DEFAULT']['返回']
         self.start_btn_x,self.start_btn_y = self.data['FISHING']['开始钓鱼按钮']
@@ -30,15 +31,20 @@ class fishing:
     
     def addCheck(self):
         while 1:
-            if self.util.OCR(self.diaoshou_x0, self.diaoshou_y0, self.diaoshou_x1, self.diaoshou_y1) == '钓手信息':
+            diao_ocr =  self.util.OCR(self.diaoshou_x0, self.diaoshou_y0, self.diaoshou_x1, self.diaoshou_y1)
+            # print(diao_ocr)
+            if diao_ocr == '钓':
                 a = self.util.OCR(self.a_x0,self.a_y0, self.a_x1, self.a_y1)
                 b = self.util.OCR(self.b_x0,self.b_y0, self.b_x1, self.b_y1)
                 c = self.util.OCR(self.c_x0,self.c_y0, self.c_x1, self.c_y1)
                 d = self.util.OCR(self.d_x0,self.d_y0, self.d_x1, self.d_y1)
                 e = self.util.OCR(self.e_x0,self.e_y0, self.e_x1, self.e_y1)
+                
                 if e == '0':
-                    return 0
-                if (a, b, c, d).count('0') == True:
+                    return False
+                if '0' in [a, b, c, d]:
+                    print(a, b, c, d, e)
+                    print(self.diaogan_x,self.diaogan_y)
                     self.util.mouseClick(self.diaogan_x,self.diaogan_y)
                     time.sleep(1.5)
                     self.util.mouseClick(self.fix_x, self.fix_y)
@@ -68,15 +74,20 @@ class fishing:
                         time.sleep(1)
                         self.util.doubleClick(self.confirm_x, self.confirm_y)
                     self.util.doubleClick(self.back_x,self.back_y)
-                if (a,b,c,d).count('0') == False:
-                    break
+                else:
+                   
+                    return True
+                    
 
     def pull(self):
-        self.addCheck()
-        time.sleep(1)
-        util.doubleClick(self.start_btn_x,self.start_btn_y)
-        time.sleep(self.duration)
-        util.doubleClick(self.start_btn_x,self.start_btn_y)
+        if self.addCheck():
+            time.sleep(1)
+            
+            self.util.doubleClick(self.start_btn_x, self.start_btn_y)
+            time.sleep(self.duration)
+            self.util.doubleClick(self.start_btn_x, self.start_btn_y)
+            return True
+        return False
 
 
     def drag(self):
@@ -88,38 +99,58 @@ class fishing:
         red_area_x0,red_area_y0,red_area_x1,red_area_y1 = self.data['FISHING']['钓鱼图片识别位置']['红色区域']
         
         continue_x0,continue_y0,continue_x1,continue_y1 = self.data['FISHING']['点击屏幕继续']
-        escape_x0,escape_y0,escape_x1,escape_y1 = self.data['FISHING']['鱼儿跑了']
         bottle_x0, bottle_y0,bottle_x1, bottle_y1 = self.data['FISHING']['来自异世界的瓶子']
 
         bottle_area_x,bottle_area_y = self.data['FISHING']['漂流瓶位置']
         bottle_confirm_x,bottle_confirm_y = self.data['FISHING']['漂流瓶确定']
         
-        blank_x, blank_y = self.data['FISHING']['空白区域']
+        level_up_x0, level_up_y0,  level_up_x1, level_up_y1 = self.data['FISHING']['钓鱼等级提升']
         confirm_ctn_x,confirm_ctn_y = self.data['FISHING']['点击屏幕']
         
         while 1:
+            continue_ocr = self.util.OCR(continue_x0,continue_y0,continue_x1,continue_y1)
+           
+            fish_info = self.util.OCR(self.diaoshou_x0, self.diaoshou_y0, self.diaoshou_x1, self.diaoshou_y1)
             if self.util.findPic(blue_area_x0,blue_area_y0,blue_area_x1,blue_area_y1,blue_area,0.98):
                 self.util.mouseDown(self.start_btn_x,self.start_btn_y)
             elif self.util.findPic(green_area_x0,green_area_y0,green_area_x1,green_area_y1,green_area,0.99):
                 self.util.mouseDown(self.start_btn_x,self.start_btn_y)
             elif self.util.findPic(red_area_x0,red_area_y0,red_area_x1,red_area_y1,red_area,0.97):
-                self.util.mouseUp(self.start_btn_x,self.start_btn_y)   
-            if self.util.OCR(continue_x0,continue_y0,continue_x1,continue_y1) == '点击屏幕继续':
-                time.sleep(0.5)
-                self.util.doubleClick(confirm_ctn_x,confirm_ctn_y)
-                time.sleep(3)
-                self.util.doubleClick(confirm_ctn_x,confirm_ctn_y)
-                time.sleep(3)
-                self.util.doubleClick(blank_x, blank_y)  
-                if self.util.OCR(bottle_x0, bottle_y0,bottle_x1, bottle_y1) == '来自异世界的瓶子':
-                    time.sleep(2)
-                    self.util.doubleClick(bottle_area_x,bottle_area_y)
-                    time.sleep(4)
-                    self.util.doubleClick(bottle_confirm_x,bottle_confirm_y)
-                break
-            if self.util.OCR(escape_x0,escape_y0,escape_x1,escape_y1) == '鱼儿跑了':
+                self.util.mouseUp(self.start_btn_x,self.start_btn_y)  
+            elif fish_info == '钓':
+                # time.sleep(2)
+                break 
+            elif continue_ocr == '点击屏幕继续':
                 time.sleep(2)
+                # 点击屏幕继续
+                print("ping")
+                self.util.doubleClick(confirm_ctn_x,confirm_ctn_y)
+                time.sleep(3)
+                # 确定鱼的信息
+                print("yu")
+                self.util.doubleClick(confirm_ctn_x,confirm_ctn_y)
+                time.sleep(3)
+                while 1:
+                    bottle_ocr = self.util.OCR(bottle_x0, bottle_y0,bottle_x1, bottle_y1)
+                    # level_up_ocr = self.util.OCR(level_up_x0, level_up_y0,  level_up_x1, level_up_y1)
+                    # print(bottle_ocr)
+                    if bottle_ocr == '来':
+                        
+                        print(self.util.OCR(bottle_x0, bottle_y0,bottle_x1, bottle_y1))
+                        time.sleep(2)
+                        self.util.doubleClick(bottle_area_x,bottle_area_y)
+                        time.sleep(4)
+                        self.util.doubleClick(bottle_confirm_x,bottle_confirm_y)
+                        break
+                    # print(fish_info)
+                    if bottle_ocr != '来':
+                        # 出现钓鱼升级或者获得食谱后再点一下，避免卡住
+                        time.sleep(3)
+                        print('skip')
+                        self.util.doubleClick(confirm_ctn_x, confirm_ctn_y) 
+                        break
                 break
+           
 
     def fjoin(self, point):
         time.sleep(2)
@@ -141,8 +172,9 @@ class fishing:
             time.sleep(2)
             self.drag()
             _times += 1
+               
 
-class tuya:
+class Tuya:
     def __init__(self,tchoice,tdif,ttimes,data):
         self.util = util(data)
         self.data = data
@@ -176,7 +208,7 @@ class tuya:
         time.sleep(2)
         self.util.doubleClick(self.quit_x,self.quit_y)  #退出
         time.sleep(5)
-        self.util.doubleClick(self.start_x,self.start_y)  #开始挑战
+        self.util.doubleClick(self.invt_x,self.invt_y)  #开始挑战
         time.sleep(2)
         self.util.doubleClick(self.start_x,self.start_y)  #确认
 
