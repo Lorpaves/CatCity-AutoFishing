@@ -27,7 +27,7 @@ class Fishing:
         self.add_x, self.add_y = self.data['FISHING']['购买位置']['鱼线和鱼饵购买位置']['数量增加按钮']
         self.purchase_x, self.purchase_y= self.data['FISHING']['购买位置']['鱼线和鱼饵购买位置']['购买按钮']
         self.confirm_x, self.confirm_y = self.data['FISHING']['购买位置']['鱼线和鱼饵购买位置']['确定购买按钮']
-
+        self.duration_check_bottle = self.data['FISHING']['漂流瓶延迟']
     
     def addCheck(self):
         while 1:
@@ -89,7 +89,6 @@ class Fishing:
             return True
         return False
 
-
     def drag(self):
         blue_area = self.data['FISHING']['钓鱼图片识别位置']['蓝色区域图片的路径']
         blue_area_x0,blue_area_y0,blue_area_x1,blue_area_y1 = self.data['FISHING']['钓鱼图片识别位置']['蓝色区域']
@@ -104,7 +103,6 @@ class Fishing:
         bottle_area_x,bottle_area_y = self.data['FISHING']['漂流瓶位置']
         bottle_confirm_x,bottle_confirm_y = self.data['FISHING']['漂流瓶确定']
         
-        level_up_x0, level_up_y0,  level_up_x1, level_up_y1 = self.data['FISHING']['钓鱼等级提升']
         confirm_ctn_x,confirm_ctn_y = self.data['FISHING']['点击屏幕']
         
         while 1:
@@ -129,7 +127,7 @@ class Fishing:
                 # 确定鱼的信息
                 print("yu")
                 self.util.doubleClick(confirm_ctn_x,confirm_ctn_y)
-                time.sleep(3)
+                time.sleep(self.duration_check_bottle)
                 while 1:
                     bottle_ocr = self.util.OCR(bottle_x0, bottle_y0,bottle_x1, bottle_y1)
                     # level_up_ocr = self.util.OCR(level_up_x0, level_up_y0,  level_up_x1, level_up_y1)
