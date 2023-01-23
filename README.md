@@ -22,7 +22,7 @@
 
 - 先启动模拟器，进入游戏，再使用软件，否则软件打不开！！！！！
 
-- 具体的配置在主文件夹的 data.json 文件里，data.json 是配置文件，需要修改的一般是模拟器名称，默认为 ld
+- 具体的配置在主文件夹的 data.json 文件里，data.json 是配置文件，需要修改的一般是模拟器名称，默认为 雷电模拟器
 
 - 默认的模拟器分辨率：1280x720
 
@@ -30,7 +30,7 @@
 
 - 桌面文本缩放：100%
 
-- 修改按键设置，向下滑动为 space 键，灵敏度设置为 3
+- 修改按键设置，向下滑动为 space 键，灵敏度设置为 3， 按键位于进入钓鱼场后的选择钓鱼场的最下方。
 
 ### 问题解答
 
@@ -42,32 +42,3 @@
 
 - 如果以上解决方法仍无效，B 站私信我，最好能发图片给我看
 
-### 关于使用 GPU 版本 （已经不再更新）
-
-**GPU 版本的 CatBot 对 CPU 的使用率会低些。**
-
-**这只是一个测试。如果运行失败建议使用原版本，因为需要自己编译 Opencv CUDA 版本，比较折腾。**
-
-1. 环境要求：
-
-   - python3.x
-
-   - opencv gpu 版本
-
-2. 下载[gpu_version](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/gpu_version.py)
-
-   - 以及存放图片的钓鱼和涂鸦文件夹
-
-3. 下载[requirements.txt](https://github.com/Lorpaves/CatCity-AutoFishing/blob/master/requirements.txt)
-
-4. 下载环境所需要的模块
-
-   ```shell
-   pip install -r requirements.txt
-   ```
-
-5. 在 gpu_version 文件所在的文件夹下
-
-```shell
-python gui_version.py
-```
